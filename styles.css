@@ -1,0 +1,194 @@
+html {
+	font-family: "Open Sans",sans-serif;
+	font-size: 11px;
+}
+
+body {
+	--margin: 12px;
+	--grey: #aaa;
+	--blue: #36c;
+
+	background-color: #999;
+}
+
+.wrapper {
+	max-width: 595px; /* A4 */
+	margin: auto;
+	background-color: white;
+	
+	padding: 36px 24px;
+}
+
+@media print {
+	body {
+		background-color: transparent;
+	}
+	
+	.wrapper {
+		background-color: transparent;
+		max-width: none;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.header {
+	display: flex;
+}
+
+.header .left {
+	flex-basis: 0;
+	flex-grow: 1;
+}
+
+.header .left .name {
+	font-size: 4rem;
+}
+
+.header .left .title {
+	font-size: 2rem;
+	color: var(--grey);
+	font-style: italic;
+	
+	margin-top: var(--margin);
+}
+
+.header .right {
+	flex-basis: 0;
+	flex-grow: 1;
+	
+	display: flex;
+}
+
+.header .right .address {
+	flex-basis: 0;
+	flex-grow: 1;
+	
+	color: var(--grey);
+	
+	text-align: right;
+	margin-right: var(--margin);
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.header .right .address > div:not(:first-child) {
+	margin-top: calc(var(--margin) / 3);
+}
+
+.header .right .image {			
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.content {
+	margin-top: calc(var(--margin) * 5);
+}
+
+.content .chapter {
+	--width: 128px;
+	--space: calc(var(--margin) * 1.5);
+}
+
+.content .chapter:not(:first-child) {
+	margin-top: var(--margin);
+}
+
+.content .chapter .title {
+	display: flex;
+	align-items: center;
+	margin-bottom: calc(var(--margin) * 0.75);
+	
+	font-size: 2rem;
+	color: var(--blue);
+}
+
+.content .chapter .title::before {
+	content: '';
+	display: inline-block;
+	width: var(--width);
+	margin-right: var(--space);
+	border-top: 8px solid var(--blue);
+}
+
+.content .chapter .entry {
+	display: flex;
+}
+
+.content .chapter .entry:not(:nth-child(2)) {
+	margin-top: calc(var(--margin) / 2);
+}
+
+.content .chapter .entry .left {
+	width: var(--width);
+	min-width: var(--width);
+	max-width: var(--width);
+	margin-right: var(--space);
+	
+	text-align: right;
+}
+
+.content .chapter .entry .left .duration {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.content .chapter .entry .left .duration .date-block {
+	display: inline-block;
+}
+
+.content .chapter .entry .left .duration > span {
+	margin: 0 var(--margin);
+}
+
+.content .chapter .entry .left .duration .year {
+	text-align: center;
+}
+
+.content .chapter .entry .left .duration .month {
+	font-size: 0.875rem;
+	text-align: center;
+}
+
+.content .chapter .entry .right .capitalize {
+	text-transform: capitalize;
+	font-variant: small-caps;
+}
+
+.content .chapter .entry .right	ul {
+	--blob-size: 4px;
+
+	margin: calc(var(--margin) / 2) 0;
+	padding: 0;
+	list-style: none;
+}
+
+.content .chapter .entry .right	ul li::before {
+	content: '';
+	display: inline-block;
+	margin-right: var(--margin);
+	width: var(--blob-size);
+	height: var(--blob-size);
+	border: 1px solid var(--blue);
+	border-radius: calc(var(--blob-size) / 2);
+}
+	
+.content .chapter .entry .right a,
+.content .chapter .entry .right a:visited,
+.content .chapter .entry .right a:active {
+	text-decoration: none;
+	color: black;
+}
+		
+.content .chapter .entry .right a:hover {
+	color: var(--blue);
+	text-decoration: underline;
+}
+	
+.content .chapter .entry .right a .position:not(:first-child) {
+	margin-top: calc(var(--margin) / 2);
+}
